@@ -71,21 +71,7 @@ export async function PATCH(request: Request) {
        WHERE incident_id = $2`,
       [newStatus, incidentId]
     );
-
-    await client.query(
-      `INSERT INTO status_history
-         (incident_id, old_status, new_status, changed_by, remarks)
-       VALUES ($1, $2, $3, $4, $5)`,
-      [
-        incidentId,
-        oldStatus,
-        newStatus,
-        1,
-        `Status changed from ${oldStatus} to ${newStatus}`,
-      ]
-    );
-
-    await client.query("COMMIT");
+await client.query("COMMIT");
 
     return NextResponse.json({
       success: true,
@@ -106,5 +92,6 @@ export async function PATCH(request: Request) {
     client.release();
   }
 }
+
 
 
