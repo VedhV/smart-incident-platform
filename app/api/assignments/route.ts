@@ -10,7 +10,7 @@ export async function POST(request: Request) {
 
     const incidentId = Number(body.incident_id);
     const officerId = Number(body.officer_id);
-    const assignedBy = Number(body.assigned_by ?? 3);
+    const assignedBy = 1;
 
     if (
       !Number.isInteger(incidentId) ||
@@ -112,3 +112,4 @@ export async function POST(request: Request) {
     client.release();
   }
 }
+

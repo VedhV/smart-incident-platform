@@ -10,10 +10,7 @@ const allowedStatuses = [
   "rejected",
 ];
 
-export async function PATCH(
-  request: Request,
-  context: { params: Promise<{ }> }
-) {
+export async function PATCH(request: Request) {
   const client = await pool.connect();
 
   try {
@@ -83,7 +80,7 @@ export async function PATCH(
         incidentId,
         oldStatus,
         newStatus,
-        3,
+        1,
         `Status changed from ${oldStatus} to ${newStatus}`,
       ]
     );
@@ -109,3 +106,5 @@ export async function PATCH(
     client.release();
   }
 }
+
+

@@ -1,5 +1,6 @@
 
 "use client";
+import Link from "next/link";
 
 import { useEffect, useState } from "react";
 type Officer = {
@@ -72,7 +73,7 @@ async function assignOfficer() {
       body: JSON.stringify({
         incident_id: Number(selectedIncident),
         officer_id: Number(officerId),
-        assigned_by: 3,
+        assigned_by: 1,
       }),
     });
 
@@ -132,9 +133,9 @@ async function assignOfficer() {
   return (
     <main className="min-h-screen bg-gray-100 p-6 text-gray-900 md:p-10">
       <div className="mx-auto max-w-7xl">
-        <a href="/" className="text-sm text-blue-600 hover:underline">
+        <Link href="/" className="text-sm text-blue-600 hover:underline">
           ← Back to Overview
-        </a>
+        </Link>
 
         <div className="mb-8 mt-4">
           <h1 className="text-3xl font-bold">Incident Management</h1>
@@ -270,3 +271,6 @@ async function assignOfficer() {
     </main>
   );
 }
+
+
+

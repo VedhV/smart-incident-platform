@@ -1,5 +1,6 @@
 
 "use client";
+import Link from "next/link";
 
 import { useEffect, useState } from "react";
 
@@ -78,25 +79,25 @@ export default function ActivityHistoryPage() {
 
         <p className="nav-label">WORKSPACE</p>
 
-        <a className="nav-item" href="/">
+        <Link className="nav-item" href="/">
           <span>▦</span> Overview
-        </a>
+        </Link>
 
-        <a className="nav-item" href="/">
+        <Link className="nav-item" href="/">
           <span>◎</span> Incidents
-        </a>
+        </Link>
 
-        <a className="nav-item" href="/">
+        <Link className="nav-item" href="/">
           <span>⌖</span> Departments
-        </a>
+        </Link>
 
-        <a
+        <Link
           className="nav-item active"
           href="/activity-history"
           aria-current="page"
         >
           <span>◷</span> Activity history
-        </a>
+        </Link>
 
         <div className="sidebar-bottom">
           <div className="avatar">SA</div>
@@ -193,9 +194,9 @@ export default function ActivityHistoryPage() {
               </p>
             </div>
 
-            <a className="back-link" href="/">
+            <Link className="back-link" href="/">
               ← Back to dashboard
-            </a>
+            </Link>
           </div>
 
           {loading && (
@@ -295,3 +296,5 @@ export default function ActivityHistoryPage() {
     </main>
   );
 }
+
+

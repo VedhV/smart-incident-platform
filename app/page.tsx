@@ -1,5 +1,6 @@
 
 "use client";
+import Link from "next/link";
 
 import { useEffect, useState } from "react";
 
@@ -63,7 +64,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    void loadIncidents();
+    queueMicrotask(() => { void loadIncidents(); });
   }, []);
 
   async function handleSubmit(
@@ -232,18 +233,18 @@ export default function Home() {
         </div>
 
         <p className="nav-label">WORKSPACE</p>
-        <a href="/" className="nav-item active">
+        <Link href="/" className="nav-item active">
   <span>▦</span> Overview
-</a>
-        <a href="/incidents" className="nav-item">
+</Link>
+        <Link href="/incidents" className="nav-item">
   <span>◎</span> Incidents
-</a>
-        <a href="/departments" className="nav-item">
+</Link>
+        <Link href="/departments" className="nav-item">
   <span>⊕</span> Departments
-</a>
-        <a href="/activity-history" className="nav-item">
+</Link>
+        <Link href="/activity-history" className="nav-item">
   <span>◷</span> Activity history
-</a>
+</Link>
         <div className="sidebar-bottom">
           <div className="avatar">SA</div>
           <div>
@@ -576,3 +577,6 @@ export default function Home() {
     </main>
   );
 }
+
+
+
